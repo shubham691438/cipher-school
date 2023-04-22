@@ -18,7 +18,7 @@ app.use((req,res,next)=>{
 })
 
 //connect to database and listen to port
-port=process.env.PORT||3000
+port=process.env.PORT||3030
 mongoose.connect(process.env.MONGO_URI)
         .then(()=>{
           console.log('connected to db')
