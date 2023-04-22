@@ -7,8 +7,6 @@ function App() {
   useEffect(() => {
 
   const BACKEND_URL=process.env.REACT_APP_BACKEND_URL
-  console.log("BACKEND_URL=",BACKEND_URL)
-
   const  fetchData=async()=>{
     const res=await fetch(`${BACKEND_URL}/api`)
     const json=await res.json()
