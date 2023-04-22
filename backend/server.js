@@ -16,6 +16,12 @@ app.use((req,res,next)=>{
     console.log(req.path,req.method)
     next()
 })
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 //connect to database and listen to port
 port=process.env.PORT||3030
