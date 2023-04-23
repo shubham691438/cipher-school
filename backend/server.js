@@ -4,6 +4,10 @@ const mongoose=require('mongoose')
 const cookieParser=require('cookie-parser')
 const path = require('path')
 
+const indexRouter=require('./api/index')
+const userAuthRouter=require('./api/userAuthApi')
+const profileApi=require('./api/profileApi')
+
 //initialized express app
 const app=express()
 
@@ -23,6 +27,11 @@ app.use((req, res, next) => {
   next();
 });
 
+//for api routes
+app.use('/api',indexRouter)
+app.use('/api/user',userAuthRouter)
+app.use('/api/profile',profileApi)
+
 //connect to database and listen to port
 port=process.env.PORT||3030
 mongoose.connect(process.env.MONGO_URI)
@@ -39,7 +48,3 @@ mongoose.connect(process.env.MONGO_URI)
         })
 
         
-//routes
-app.get('/api',(req,res)=>{
-    res.status(200).json({msg: "Welcome to API"})
-})
