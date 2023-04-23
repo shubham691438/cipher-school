@@ -172,7 +172,7 @@ const updateInterests=async(req,res)=>{
         return res.status(404).json({ msg: 'Profile not found' });
         }
 
-        res.status(200).json(profile);
+        res.status(200).json("interests updated successfully",profile);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
